@@ -11,32 +11,37 @@ class Directory extends React.Component {
         this.state = {
             sections: [
                 {
-                  title: 'hats',
-                  imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
-                  id: 1
+                    id: 1,
+                    title: 'hats',
+                    imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+                    linkUrl: 'hats',
                 },
                 {
-                  title: 'jackets',
-                  imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
-                  id: 2
+                    id: 2,
+                    title: 'jackets',
+                    imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
+                    linkUrl: '',
                 },
                 {
-                  title: 'sneakers',
-                  imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
-                  id: 3
+                    id: 3,
+                    title: 'sneakers',
+                    imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
+                    linkUrl: '',
                 },
                 {
-                  title: 'womens',
-                  imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
-                  size: 'large',
-                  id: 4
+                    id: 4,
+                    title: 'womens',
+                    imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
+                    size: 'large',
+                    linkUrl: '',
                 },
                 {
-                  title: 'mens',
-                  imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
-                  size: 'large',
-                  id: 5
-                }
+                    id: 5,
+                    title: 'mens',
+                    imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
+                    size: 'large',
+                    linkUrl: '',
+                },
             ]
         };
     }
@@ -45,8 +50,8 @@ class Directory extends React.Component {
         return (
             <div className='directory-menu'>
             {
-                this.state.sections.map(({id, imageUrl, title, size}) => (
-                    <MenuItem key={id} title={title} imageUrl={imageUrl} size={size}/>
+                this.state.sections.map(({id, ...otherSectionProps}) => (
+                    <MenuItem key={id} {...otherSectionProps}/>
                 ))
             }
             </div>
